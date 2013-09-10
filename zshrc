@@ -42,6 +42,7 @@ function yalp()
 
 # Environment Variables
 export CLICOLOR
+export LESS=R
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -59,6 +60,21 @@ zle-line-init () {
   zle -K viins
   echo -ne "\033]Plffffff\033\\" #white
 }; zle -N zle-line-init
+
+# Quotes insertion shortcuts
+insert-single-quotes () {
+    LBUFFER+="''"
+    zle backward-char
+}
+insert-double-quotes () {
+    LBUFFER+='""'
+    zle backward-char
+}
+
+zle -N insert-single-quotes
+zle -N insert-double-quotes
+bindkey '^y' insert-single-quotes
+bindkey '^x' insert-double-quotes
 
 # Command line syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
