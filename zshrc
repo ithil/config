@@ -38,6 +38,7 @@ alias bd='cd ~/.backdoor'
 # Environment Variables
 export CLICOLOR
 
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Change cursor colour depending on vi mode
 zle-keymap-select () {
