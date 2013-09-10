@@ -40,6 +40,8 @@ function yalp()
     play $1 reverse
 }
 
+setopt HIST_IGNORE_SPACE
+
 # Environment Variables
 export CLICOLOR
 export LESS=R
