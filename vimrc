@@ -5,6 +5,7 @@ filetype plugin on
 filetype indent on
 set hlsearch
 set t_Co=256
+set mouse=a
 
 color jellybeans
 
