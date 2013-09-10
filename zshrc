@@ -59,3 +59,6 @@ zle-line-init () {
   zle -K viins
   echo -ne "\033]Plffffff\033\\" #white
 }; zle -N zle-line-init
+
+# Command line syntax highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
