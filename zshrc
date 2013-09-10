@@ -34,6 +34,10 @@ alias :q='exit'
 alias ez='vim ~/.zshrc'
 alias -g L='|less'
 alias bd='cd ~/.backdoor'
+function yalp()
+{
+    play $1 reverse
+}
 
 # Environment Variables
 export CLICOLOR
