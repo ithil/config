@@ -10,6 +10,7 @@ zstyle :compinstall filename '/Users/janus/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==33=00}:${(s.:.)LS_COLORS}")';
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
