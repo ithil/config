@@ -78,5 +78,10 @@ zle -N insert-double-quotes
 bindkey '^y' insert-single-quotes
 bindkey '^x' insert-double-quotes
 
+# Toggle background jobs
+background-toggle() {fg}
+zle -N background-toggle
+bindkey '^Z' background-toggle
+
 # Command line syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
