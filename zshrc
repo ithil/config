@@ -40,6 +40,17 @@ function yalp()
     play $1 reverse
 }
 
+function curtab()
+{
+    osascript -e '
+    tell application "Google Chrome"
+        get URL of active tab of first window
+    end tell'
+}
+alias -g T='`curtab`'
+alias -g P='`pbpaste`'
+alias -g C='|pbcopy'
+
 setopt HIST_IGNORE_SPACE
 
 # Environment Variables
