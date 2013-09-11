@@ -51,6 +51,13 @@ alias -g T='`curtab`'
 alias -g P='`pbpaste`'
 alias -g C='|pbcopy'
 
+function extract-domain()
+{
+    [[ $1 =~ 'https?://([^/]+)' ]]
+    echo $match
+}
+alias -g Td='`extract-domain T`'
+
 setopt HIST_IGNORE_SPACE
 
 # Environment Variables
