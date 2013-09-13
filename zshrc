@@ -19,11 +19,42 @@ setopt appendhistory
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
+setopt HIST_IGNORE_SPACE
+setopt promptsubst
+
 autoload -U colors && colors
 # Prompt-related stuff
 autoload -U promptinit
 promptinit
-PROMPT="%(1j.%{$fg[red]%}{%{$reset_color%}%j%{$fg[red]%}}%{$reset_color%}.) %{$fg[magenta]%}%?%{$reset_color%} %{$fg[blue]%}%~%{$reset_color%} %% "
+
+function precmd
+{
+    if [[ -d ./.git ]] then
+        IS_GIT=0
+    else
+        IS_GIT=1
+    fi
+
+    if [[ $IS_GIT -eq 0 ]] then
+        PROMPTCHAR='±'
+        if ! git diff-index --quiet HEAD
+        then
+            GIT_CHANGED='*'
+        else
+            GIT_CHANGED=''
+        fi
+        branch_name=$(git symbolic-ref -q HEAD)
+        branch_name=${branch_name##refs/heads/}
+        branch_name=${branch_name:-HEAD}
+        RPROMPT="[%{$fg[green]%}$branch_name%{$reset_color%}]"
+    else
+        PROMPTCHAR='%%'
+        GIT_CHANGED=''
+        RPROMPT=''
+    fi
+}
+
+PROMPT='%(1j.%{$fg[red]%}{%{$reset_color%}%j%{$fg[red]%}}%{$reset_color%}.) %{$fg[magenta]%}%?%{$reset_color%} %{$fg[blue]%}%~%{$reset_color%}%{$fg[yellow]%}${GIT_CHANGED}%{$reset_color%} ${PROMPTCHAR} '
 
 # Aliases
 alias ls='ls -G' #Enable colors
@@ -76,8 +107,6 @@ function get-finder-directory()
 }
 alias -g Fs='"`get-finder-selection`"'
 alias -g Fd='"`get-finder-directory`"'
-
-setopt HIST_IGNORE_SPACE
 
 # Environment Variables
 export CLICOLOR
