@@ -53,10 +53,29 @@ alias -g C='|pbcopy'
 
 function extract-domain()
 {
-    [[ $1 =~ 'https?://([^/]+)' ]]
+    [[ $1 =~ 'https?://([^/:]+)' ]]
     echo $match
 }
 alias -g Td='`extract-domain T`'
+
+function get-finder-selection()
+{
+    osascript -e '
+    tell application "Finder" to set theSelection to (selection) as alias list
+        set myFiles to ""
+        repeat with i from 1 to length of theSelection
+            set myFiles to myFiles & POSIX path of (item i of the theSelection) & " "
+        end repeat
+    '
+}
+function get-finder-directory()
+{
+    osascript -e '
+    tell application "Finder" to POSIX path of (insertion location as alias)
+    '
+}
+alias -g Fs='"`get-finder-selection`"'
+alias -g Fd='"`get-finder-directory`"'
 
 setopt HIST_IGNORE_SPACE
 
