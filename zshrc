@@ -111,6 +111,8 @@ alias -g Fd='"`get-finder-directory`"'
 # Environment Variables
 export CLICOLOR
 export LESS=R
+export PAGER=vimpager
+export EDITOR=vim
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
