@@ -4,6 +4,7 @@ syntax on
 filetype plugin on
 filetype indent on
 set hlsearch
+set incsearch
 set t_Co=256
 set mouse=a
 
