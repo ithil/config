@@ -70,7 +70,13 @@ function yalp()
 {
     play $1 reverse
 }
-
+function cped() # Clipboard editor
+{
+    PASTEPATH=/tmp/paste.txt
+    pbpaste >$PASTEPATH
+    $EDITOR $PASTEPATH
+    pbcopy <$PASTEPATH
+}
 function curtab()
 {
     osascript -e '
