@@ -19,6 +19,16 @@ setopt appendhistory
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
+# Environment Variables
+export CLICOLOR
+export LESS=R
+export PAGER=vimpager
+export EDITOR=vim
+export VIMPAGER_RC=$HOME/.backdoor/config/vimpagerrc
+export ZSH_BMS=$HOME/.zsh_bookmarks
+
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 setopt HIST_IGNORE_SPACE
 setopt promptsubst
 
@@ -116,14 +126,20 @@ function get-finder-directory()
 alias -g Fs='"`get-finder-selection`"'
 alias -g Fd='"`get-finder-directory`"'
 
-# Environment Variables
-export CLICOLOR
-export LESS=R
-export PAGER=vimpager
-export EDITOR=vim
-export VIMPAGER_RC=$HOME/.backdoor/config/vimpagerrc
+function bm()
+{
+    hash -d $1="$PWD"
+    echo "hash -d $1=\"$PWD\"" >> $ZSH_BMS
+}
+function bmrm()
+{
+    hash -dr #Clears dir hash table
+    grep -v $PWD $ZSH_BMS > /tmp/zsh_bookmarks
+    mv /tmp/zsh_bookmarks $ZSH_BMS
+    source $ZSH_BMS
+}
+source $ZSH_BMS
 
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Change cursor colour depending on vi mode
 zle-keymap-select () {
