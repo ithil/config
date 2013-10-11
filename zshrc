@@ -67,6 +67,7 @@ alias ez='vim ~/.zshrc'
 alias -g L='|less'
 alias bd='cd ~/.backdoor'
 alias vim='/usr/bin/vim'
+alias love='/Applications/love.app/Contents/MacOS/love'
 function yalp()
 {
     play $1 reverse
