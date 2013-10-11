@@ -66,6 +66,7 @@ alias :q='exit'
 alias ez='vim ~/.zshrc'
 alias -g L='|less'
 alias bd='cd ~/.backdoor'
+alias vim='/usr/bin/vim'
 function yalp()
 {
     play $1 reverse
@@ -119,6 +120,7 @@ export CLICOLOR
 export LESS=R
 export PAGER=vimpager
 export EDITOR=vim
+export VIMPAGER_RC=$HOME/.backdoor/config/vimpagerrc
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
