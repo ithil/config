@@ -171,6 +171,10 @@ zle -N insert-double-quotes
 bindkey '^y' insert-single-quotes
 bindkey '^x' insert-double-quotes
 
+# Edit command line with $EDITOR
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
 # Toggle background jobs
 background-toggle() {fg}
 zle -N background-toggle
