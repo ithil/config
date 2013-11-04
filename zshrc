@@ -23,7 +23,7 @@ bindkey -v
 export CLICOLOR
 export LESS=R
 export PAGER=vimpager
-export EDITOR=vim
+export EDITOR="/usr/bin/vim"
 export VIMPAGER_RC=$HOME/.backdoor/config/vimpagerrc
 export ZSH_BMS=$HOME/.zsh_bookmarks
 
@@ -113,7 +113,11 @@ function get-finder-selection()
     tell application "Finder" to set theSelection to (selection) as alias list
         set myFiles to ""
         repeat with i from 1 to length of theSelection
-            set myFiles to myFiles & POSIX path of (item i of the theSelection) & " "
+            if (i < length of theSelection) then
+                set myFiles to myFiles & POSIX path of (item i of the theSelection) & " "
+            else
+                set myFiles to myFiles & POSIX path of (item i of the theSelection)
+            end if
         end repeat
     '
 }
