@@ -109,17 +109,18 @@ alias -g Td='`extract-domain T`'
 
 function get-finder-selection()
 {
-    osascript -e '
-    tell application "Finder" to set theSelection to (selection) as alias list
+    applescript='tell application "Finder" to set theSelection to (selection) as alias list
         set myFiles to ""
         repeat with i from 1 to length of theSelection
             if (i < length of theSelection) then
-                set myFiles to myFiles & POSIX path of (item i of the theSelection) & " "
+                set myFiles to myFiles & quoted form of POSIX path of (item i of the theSelection) & " "
             else
-                set myFiles to myFiles & POSIX path of (item i of the theSelection)
+                set myFiles to myFiles & quoted form of POSIX path of (item i of the theSelection)
             end if
-        end repeat
-    '
+        end repeat'
+
+    files="$( osascript -e $applescript )"
+    echo ${(Q)${(z)files[@]}}
 }
 function get-finder-directory()
 {
@@ -127,8 +128,8 @@ function get-finder-directory()
     tell application "Finder" to POSIX path of (insertion location as alias)
     '
 }
-alias -g Fs='"`get-finder-selection`"'
-alias -g Fd='"`get-finder-directory`"'
+alias -g Fs='$(get-finder-selection)'
+alias -g Fd='"$(get-finder-directory)"'
 
 function bm()
 {
