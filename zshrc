@@ -78,6 +78,7 @@ alias -g L='|less'
 alias bd='cd ~/.backdoor'
 alias vim='/usr/bin/vim'
 alias love='/Applications/love.app/Contents/MacOS/love'
+alias myip='curl http://wtfismyip.com/text'
 function yalp()
 {
     play $1 reverse
@@ -99,6 +100,7 @@ function curtab()
 alias -g T='`curtab`'
 alias -g P='`pbpaste`'
 alias -g C='|pbcopy'
+alias -g CIP='`myip`'
 
 function extract-domain()
 {
