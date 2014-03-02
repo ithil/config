@@ -1,5 +1,6 @@
 set number
 set cursorline
+set ruler
 syntax on
 filetype plugin on
 filetype indent on

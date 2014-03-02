@@ -119,8 +119,8 @@ function get-finder-selection()
             end if
         end repeat'
 
-    files="$( osascript -e $applescript )"
-    echo ${(Q)${(z)files[@]}}
+    files=( $( osascript -e $applescript ) )
+    #echo ${(q)${(z)files[@]}}
 }
 function get-finder-directory()
 {
