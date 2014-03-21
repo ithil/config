@@ -26,6 +26,7 @@ export PAGER=vimpager
 export EDITOR="/usr/bin/vim"
 export VIMPAGER_RC=$HOME/.backdoor/config/vimpagerrc
 export ZSH_BMS=$HOME/.zsh_bookmarks
+export PATH="$PATH:/usr/local/Cellar/ruby/2.1.1/bin"
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
