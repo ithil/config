@@ -116,13 +116,13 @@ function get-finder-selection()
         set myFiles to ""
         repeat with i from 1 to length of theSelection
             if (i < length of theSelection) then
-                set myFiles to myFiles & quoted form of POSIX path of (item i of the theSelection) & " "
+                set myFiles to myFiles & POSIX path of (item i of the theSelection) & "\n"
             else
-                set myFiles to myFiles & quoted form of POSIX path of (item i of the theSelection)
+                set myFiles to myFiles & POSIX path of (item i of the theSelection)
             end if
         end repeat'
 
-    files=( $( osascript -e $applescript ) )
+    echo "$( osascript -e $applescript )"
     #echo ${(q)${(z)files[@]}}
 }
 function get-finder-directory()
@@ -131,7 +131,7 @@ function get-finder-directory()
     tell application "Finder" to POSIX path of (insertion location as alias)
     '
 }
-alias -g Fs='$(get-finder-selection)'
+alias -g Fs="get-finder-selection | gxargs -d '\n'"
 alias -g Fd='"$(get-finder-directory)"'
 
 function bm()
