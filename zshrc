@@ -79,7 +79,7 @@ alias -g L='|less'
 alias bd='cd ~/.backdoor'
 alias vim='/usr/bin/vim'
 alias love='/Applications/love.app/Contents/MacOS/love'
-alias myip='curl http://wtfismyip.com/text'
+alias myip='curl -s http://wtfismyip.com/text'
 function cped() # Clipboard editor
 {
     PASTEPATH=/tmp/paste.txt
