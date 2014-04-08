@@ -80,10 +80,6 @@ alias bd='cd ~/.backdoor'
 alias vim='/usr/bin/vim'
 alias love='/Applications/love.app/Contents/MacOS/love'
 alias myip='curl http://wtfismyip.com/text'
-function yalp()
-{
-    play $1 reverse
-}
 function cped() # Clipboard editor
 {
     PASTEPATH=/tmp/paste.txt
@@ -95,7 +91,7 @@ function curtab()
 {
     osascript -e '
     tell application "Google Chrome"
-        get URL of active tab of first window
+        get URL of active tab of first window as text
     end tell'
 }
 alias -g T='`curtab`'
