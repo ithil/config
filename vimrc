@@ -26,3 +26,8 @@ set pastetoggle=<F5>
 
 set wildmode=longest,list,full
 set wildmenu
+
+let mapleader = ","
+map <Leader>r :let @/ = ""<CR>
+
+cmap w!! w !sudo tee % >/dev/nul
