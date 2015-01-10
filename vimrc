@@ -78,7 +78,7 @@ set wildmenu
 let mapleader = ","
 map <Leader>r :let @/ = ""<CR>
 
-cmap w!! w !sudo tee % >/dev/nul
+cmap w!! w !sudo tee % >/dev/null
 let g:yankring_history_dir = '~/.vim/'
 
 set laststatus=2
