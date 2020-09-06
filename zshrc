@@ -81,6 +81,7 @@ alias vim='/usr/bin/vim'
 alias love='/Users/janus/Applications/love.app/Contents/MacOS/love'
 alias nwjs="/Applications/nwjs.app/Contents/MacOS/nwjs"
 alias myip='curl -s http://wtfismyip.com/text'
+alias timestamp='exiftool "-filename<CreateDate" -d %Y-%m-%d_%H-%M-%S%%-c.%%le -r'
 function cped() # Clipboard editor
 {
     PASTEPATH=/tmp/paste.txt
