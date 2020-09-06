@@ -39,6 +39,7 @@ NeoBundle "vim-scripts/wombat256.vim"
 NeoBundle "tomtom/tcomment_vim"
 NeoBundle "kana/vim-textobj-user"
 NeoBundle "beloglazov/vim-textobj-quotes"
+NeoBundle "junegunn/vim-emoji"
 
 call neobundle#end()
 
