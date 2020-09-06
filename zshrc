@@ -138,7 +138,9 @@ function get-finder-directory()
     '
 }
 alias -g Fs="get-finder-selection | gxargs -d '\n'"
+# Usage: Fs command -opt1 -opt2
 alias -g Fd='"$(get-finder-directory)"'
+# Usage: command -opt1 -opt2 Fd
 
 function bm()
 {
