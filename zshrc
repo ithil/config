@@ -89,6 +89,14 @@ function cped() # Clipboard editor
     $EDITOR $PASTEPATH
     pbcopy <$PASTEPATH
 }
+function flatten()
+{
+    find $1 -mindepth 2 -type f -exec mv -i '{}' $1 ';'
+}
+function unwrap()
+{
+    find $1 -mindepth 1 -maxdepth 1 -exec mv -i '{}' $1/../ ';'
+}
 function curtab()
 {
     osascript -e '
