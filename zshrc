@@ -78,7 +78,8 @@ alias ez='vim ~/.zshrc'
 alias -g L='|less'
 alias bd='cd ~/.backdoor'
 alias vim='/usr/bin/vim'
-alias love='/Applications/love.app/Contents/MacOS/love'
+alias love='/Users/janus/Applications/love.app/Contents/MacOS/love'
+alias nwjs="/Applications/nwjs.app/Contents/MacOS/nwjs"
 alias myip='curl -s http://wtfismyip.com/text'
 function cped() # Clipboard editor
 {
